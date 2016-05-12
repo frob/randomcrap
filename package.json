@@ -1,0 +1,16 @@
+{
+  "name": "randomcrap",
+  "version": "1.0.0",
+  "description": "Returns random crap",
+  "repository": "git@github.com:frob/randomcrap.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "random",
+    "crap"
+  ],
+  "author": "Frank Anderson <anderson.frankrobert@gmail.com> (http://frankrobertanderson.com)",
+  "license": "MIT"
+}
