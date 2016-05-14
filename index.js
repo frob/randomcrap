@@ -24,23 +24,24 @@ class RandomCrap {
     return this.biasAdjuster;
   }
 
-  randomFrom(set, name) {
-    console.log(set);
-    // if (typeof name === 'undefined') {
-      let fromSet = set;
-    // }
-    // else {
-    //   let fromSet = [];
-    //   // @TODO: all for sets to be saved.
-    // }
+  randomFrom(set, name, loop) {
+    this.sets = (typeof this.sets === 'undefined') ? [] : this.sets;
+    name = (typeof name === 'undefined') ? '__default' : name;
+    loop = (typeof loop === 'undefined') ? false : true;
+    let fromSet = (name === '__default') ? set.concat() : ((typeof this.sets[name] === 'undefined') ? set.concat() : this.sets[name]);
+
+    if (loop && fromSet.length === 0) {
+      fromSet = set.concat();
+    }
 
     const length = fromSet.length;
     const keys = fromSet.keys();
-    const indexMap = [...fromSet.keys()];
+    const indexMap = [ ... fromSet.keys() ];
     const indexGet = this.simpleRandomInt(0, length - 1);
     const randomElement = fromSet[indexMap[indexGet]];
 
-    set.splice(fromSet[indexMap[indexGet]], 1);
+    fromSet.splice(indexMap[indexGet], 1);
+    this.sets[name] = fromSet;
 
     return randomElement;
   }
