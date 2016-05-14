@@ -2,6 +2,8 @@
 
 class RandomCrap {
   /**
+   * Constructor.
+   *
    * @param biasAdjuster float
    *   Allows setting a high or low bias for random generation.
    */
@@ -12,6 +14,8 @@ class RandomCrap {
   }
 
   /**
+   * Sets the current random bias.
+   *
    * @param bias float
    *   Allows setting a high or low bias for random generation. Setting nothing
    *   will reset to neutral bias.
@@ -20,10 +24,26 @@ class RandomCrap {
     this.biasAdjuster = (typeof bias === 'undefined') ? 0.289 : bias;
   }
 
+  /**
+   * Returns the current bias.
+   */
   getBias () {
     return this.biasAdjuster;
   }
 
+  /**
+   * Gets a random element from a supplied set.
+   *
+   * @param set Array
+   *  The set from which to pull a random element.
+   *
+   * @param name String
+   *  The name of the set, if this is set then the random element will be
+   *  removed as a possible element in future calls.
+   *
+   * @param loop Boolean
+   *  Append the original set back onto the end if the set is empty.
+   */
   randomFrom(set, name, loop) {
     this.sets = (typeof this.sets === 'undefined') ? [] : this.sets;
     name = (typeof name === 'undefined') ? '__default' : name;
@@ -48,6 +68,12 @@ class RandomCrap {
 
   /**
    * Returns a random integer from min (inclusive) to max (inclusive).
+   *
+   * @param min Integer
+   *  The lowest number to return.
+   *
+   * @param max Integer
+   *  The highest number to return.
    */
   simpleRandomInt (min, max) {
     const mathRandom = Math.random();
