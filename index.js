@@ -1,5 +1,9 @@
 'use strict';
 
+const NORMAL_BIAS = 0.289;
+const HIGH_ADJUSTER = 10;
+const LOW_ADJUSTER = 1
+
 class RandomCrap {
   /**
    * Constructor.
@@ -10,7 +14,7 @@ class RandomCrap {
   constructor (biasAdjuster) {
     // This is used in the random number generation to allow for high or low
     // biasing. This can be used in a game to adjust the fun or difficulty.
-    this.biasAdjuster = (typeof biasAdjuster === 'undefined') ? 0.289 : biasAdjuster;
+    this.biasAdjuster = (typeof biasAdjuster === 'undefined') ? NORMAL_BIAS : biasAdjuster;
   }
 
   /**
@@ -21,7 +25,7 @@ class RandomCrap {
    *   will reset to neutral bias.
    */
   setBias (bias) {
-    this.biasAdjuster = (typeof bias === 'undefined') ? 0.289 : bias;
+    this.biasAdjuster = (typeof bias === 'undefined') ? NORMAL_BIAS : bias;
   }
 
   /**
@@ -77,7 +81,7 @@ class RandomCrap {
    */
   simpleRandomInt (min, max) {
     const mathRandom = Math.random();
-    const likelyAdjuster = Math.floor(mathRandom * ((10 + 1) - 1)) + 1;
+    const likelyAdjuster = Math.floor(mathRandom * ((HIGH_ADJUSTER + 1) - LOW_ADJUSTER)) + LOW_ADJUSTER;
     let random = parseFloat('0.' + (Math.random() * mathRandom * (new Date().getTime())));
 
     // This algorythm has no basis in math and it naturally biases low,
