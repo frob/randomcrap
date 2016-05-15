@@ -6,8 +6,44 @@ This has more entropy than ```Math.random()``` but isn't going to be adequate fo
 
 ## API
 
+This is meant to be a flexible yet not cryptography sound random number generator. The numbers should look good, and the bias is adjustable. A high bias will yield higher random numbers from sets. This bias can be set through the constructor or through a setter function.
+
+### setBias
+
+```setBias (bias)```
+!Sets the current random bias.
+
+@param bias float
+!Allows setting a high or low bias for random generation. Setting nothing will reset to neutral bias.
+
+### getBias
+```getBias ()```
+!Returns the current bias.
+
+### simpleRandomInt
+
 ```simpleRandomInt (min, max)```
-!Returns a simple random int from minimum to maximum inclusive.
+!Returns a random integer from min (inclusive) to max (inclusive).
+
+@param min Integer
+!The lowest number to return.
+
+@param max Integer
+!The highest number to return.
+
+### randomFrom
+
+```randomFrom (set, name, loop)```
+!Gets a random element from a supplied set.
+
+@param set Array
+!The set from which to pull a random element.
+
+@param name String
+!The name of the set, if this is set then the random element will be removed as a possible element in future calls.
+
+@param loop Boolean
+!Append the original set back onto the end if the set is empty.
 
 ## Planned additions
 - [x] random int
