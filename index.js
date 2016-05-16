@@ -70,6 +70,17 @@ class RandomCrap {
     return randomElement;
   }
 
+  /**
+   * Returns a simple random floating point Number.
+   *
+   * @param wholePercision Integer
+   *  The number of percision to the left of the decimal point.
+   *
+   * @param floatPercision Integer
+   *  The number of percision to the right of the decimal point.
+   *
+   * @return Float
+   */
   simpleRandomFloat (wholePercision, floatPercision) {
     let whole = (wholePercision > 0) ? this.simpleRandomInt(9, 1) : '0';
     for (let i = 1; i < wholePercision; i++) {
