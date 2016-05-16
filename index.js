@@ -4,13 +4,14 @@ const NORMAL_BIAS = 0.289;
 const HIGH_ADJUSTER = 10;
 const LOW_ADJUSTER = 1
 
+/**
+ * Instantiates a RandomCrap Object.
+ *
+ * @param {Float} biasAdjuster
+ *   Allows setting a high or low bias for random generation.
+ */
 class RandomCrap {
-  /**
-   * Constructor.
-   *
-   * @param biasAdjuster float
-   *   Allows setting a high or low bias for random generation.
-   */
+
   constructor (biasAdjuster) {
     // This is used in the random number generation to allow for high or low
     // biasing. This can be used in a game to adjust the fun or difficulty.
@@ -20,7 +21,7 @@ class RandomCrap {
   /**
    * Sets the current random bias.
    *
-   * @param bias float
+   * @param {Float} bias
    *   Allows setting a high or low bias for random generation. Setting nothing
    *   will reset to neutral bias.
    */
@@ -30,6 +31,8 @@ class RandomCrap {
 
   /**
    * Returns the current bias.
+   *
+   * @return {Boolean}
    */
   getBias () {
     return this.biasAdjuster;
@@ -38,14 +41,14 @@ class RandomCrap {
   /**
    * Gets a random element from a supplied set.
    *
-   * @param set Array
+   * @param {Array} set
    *  The set from which to pull a random element.
    *
-   * @param name String
+   * @param {String} name
    *  The name of the set, if this is set then the random element will be
    *  removed as a possible element in future calls.
    *
-   * @param loop Boolean
+   * @param {Boolean} loop
    *  Append the original set back onto the end if the set is empty.
    */
   randomFrom(set, name, loop) {
@@ -73,22 +76,22 @@ class RandomCrap {
   /**
    * Returns a simple random floating point Number.
    *
-   * @param wholePercision Integer
-   *  The number of percision to the left of the decimal point.
+   * @param {Integer} wholePrecision
+   *  The number of precision to the left of the decimal point.
    *
-   * @param floatPercision Integer
-   *  The number of percision to the right of the decimal point.
+   * @param {Integer} floatPrecision
+   *  The number of precision to the right of the decimal point.
    *
-   * @return Float
+   * @return {Float}
    */
-  simpleRandomFloat (wholePercision, floatPercision) {
-    let whole = (wholePercision > 0) ? this.simpleRandomInt(9, 1) : '0';
-    for (let i = 1; i < wholePercision; i++) {
+  simpleRandomFloat (wholePrecision, floatPrecision) {
+    let whole = (wholePrecision > 0) ? this.simpleRandomInt(9, 1) : '0';
+    for (let i = 1; i < wholePrecision; i++) {
       whole += '' + this.simpleRandomInt(0, 9);
     }
 
     let float = 0;
-    for (let i = 1; i < floatPercision; i++) {
+    for (let i = 1; i < floatPrecision; i++) {
       float += '' + this.simpleRandomInt(0, 9);
     }
 
@@ -98,18 +101,20 @@ class RandomCrap {
   /**
    * Returns a random integer from min (inclusive) to max (inclusive).
    *
-   * @param min Integer
+   * @param {Integer} min
    *  The lowest number to return.
    *
-   * @param max Integer
+   * @param {Integer} max
    *  The highest number to return.
+   *
+   * @return {Array}
    */
   simpleRandomInt (min, max) {
     const mathRandom = Math.random();
     const likelyAdjuster = Math.floor(mathRandom * ((HIGH_ADJUSTER + 1) - LOW_ADJUSTER)) + LOW_ADJUSTER;
     let random = parseFloat('0.' + (Math.random() * mathRandom * (new Date().getTime())));
 
-    // This algorythm has no basis in math and it naturally biases low,
+    // This algorithm has no basis in math and it naturally biases low,
     // therefore it will need some adjustment from time to time. This has been
     // tested and with its defaults comes out to be random.
     if (random < this.biasAdjuster && Math.round(mathRandom * 100) % likelyAdjuster > 0) {
