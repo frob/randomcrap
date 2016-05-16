@@ -70,6 +70,20 @@ class RandomCrap {
     return randomElement;
   }
 
+  simpleRandomFloat (wholePercision, floatPercision) {
+    let whole = (wholePercision > 0) ? this.simpleRandomInt(9, 1) : '0';
+    for (let i = 1; i < wholePercision; i++) {
+      whole += '' + this.simpleRandomInt(0, 9);
+    }
+
+    let float = 0;
+    for (let i = 1; i < floatPercision; i++) {
+      float += '' + this.simpleRandomInt(0, 9);
+    }
+
+    return Number.parseFloat(whole + '.' + float);
+  }
+
   /**
    * Returns a random integer from min (inclusive) to max (inclusive).
    *
