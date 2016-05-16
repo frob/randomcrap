@@ -46,14 +46,14 @@ This is meant to be a flexible yet not cryptography sound random number generato
 !Append the original set back onto the end if the set is empty.
 
 ### simpleRandomFloat
-```simpleRandomFloat (wholePercision, floatPercision)```
+```simpleRandomFloat (wholePrecision, floatPrecision)```
 !Returns a simple random floating point Number.
 
-@param wholePercision Integer
-!The number of percision to the left of the decimal point.
+@param wholePrecision Integer
+!The number of precision to the left of the decimal point.
 
-@param floatPercision Integer
-!The number of percision to the right of the decimal point.
+@param floatPrecision Integer
+!The number of precision to the right of the decimal point.
 
 @return Float
 
