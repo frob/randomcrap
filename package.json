@@ -1,6 +1,6 @@
 {
   "name": "randomcrap",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "Returns random crap",
   "repository": "git@github.com:frob/randomcrap.git",
   "main": "index.js",
