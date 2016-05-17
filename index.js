@@ -74,7 +74,9 @@ class RandomCrap {
   }
 
   simpleRandomAlpha (options) {
-    const alpha = [
+    options = Object.assign({}, options || {});
+    // In order to test this, we need to be able to inject the alpha set.
+    const alpha = (typeof options._set === 'undefined') ? [
       'a',
       'b',
       'c',
@@ -101,16 +103,20 @@ class RandomCrap {
       'x',
       'y',
       'z',
-    ];
+    ] : options._set;
 
-    options = Object.assign({}, options || {});
     const allCaps = (typeof options.allCaps === 'undefined') ? false : options.allCaps;
     const noCaps = (typeof options.noCaps === 'undefined') ? false : options.noCaps;
 
     if (allCaps && noCaps) {
       return '';
     }
-    return this.randomFrom(alpha);
+
+    // This line might just be being too clever, but it works and it looks more
+    // elegent than a bunch of if else statements.
+    return (allCaps) ? this.randomFrom(alpha).toUpperCase() :
+      (noCaps) ? this.randomFrom(alpha).toLowerCase() :
+      (this.randomFrom([true,false,true,false,true,false])) ? this.randomFrom(alpha).toUpperCase() : this.randomFrom(alpha);
   }
 
   /**
