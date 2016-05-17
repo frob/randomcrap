@@ -73,6 +73,22 @@ class RandomCrap {
     return randomElement;
   }
 
+  /**
+   * Returns a random apha character.
+   *
+   * @param {Object} options
+   *  Optional arguments:
+   *   {
+   *     allCaps: {Boolean},
+   *       Only return Capitalized letters.
+   *     noCaps: {Boolean},
+   *       Never return Capitalized letters.
+   *     _set: {Array},
+   *       Inject set, useful for testing, or localization.
+   *   }
+   *
+   * @return {String}
+   */
   simpleRandomAlpha (options) {
     options = Object.assign({}, options || {});
     // In order to test this, we need to be able to inject the alpha set.
