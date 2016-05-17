@@ -36,3 +36,7 @@ console.log(randomArray);
 
 console.log('Test simpleRandomAlpha');
 console.log('Assert setting allCaps and noCaps to true gives no result: true|' + (rc.simpleRandomAlpha({allCaps: true, noCaps: true}) === ''));;
+console.log('Assert noCaps option works: true|' + (rc.simpleRandomAlpha({_set: ['A'], noCaps: true}) === 'a'));
+console.log('Assert noCaps option works: false|' + (rc.simpleRandomAlpha({_set: ['a'], noCaps: true}) === 'A'));
+console.log('Assert allCaps option works: true|' + (rc.simpleRandomAlpha({_set: ['a'], allCaps: true}) === 'A'));
+console.log('Assert allCaps option works: false|' + (rc.simpleRandomAlpha({_set: ['a'], allCaps: true}) === 'a'));
