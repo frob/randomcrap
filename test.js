@@ -33,3 +33,6 @@ console.log(randomArray);
 // no duplicates in named set that is not looped
 // in limited loop set [ 1, 2, 3 ] only elements from set and no undefined
 // are returned.
+
+console.log('Test simpleRandomAlpha');
+console.log('Assert setting allCaps and noCaps to true gives no result: true|' + (rc.simpleRandomAlpha({allCaps: true, noCaps: true}) === ''));;

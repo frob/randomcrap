@@ -73,6 +73,46 @@ class RandomCrap {
     return randomElement;
   }
 
+  simpleRandomAlpha (options) {
+    const alpha = [
+      'a',
+      'b',
+      'c',
+      'd',
+      'e',
+      'f',
+      'g',
+      'h',
+      'i',
+      'j',
+      'k',
+      'l',
+      'm',
+      'n',
+      'o',
+      'p',
+      'q',
+      'r',
+      's',
+      't',
+      'u',
+      'v',
+      'w',
+      'x',
+      'y',
+      'z',
+    ];
+
+    options = Object.assign({}, options || {});
+    const allCaps = (typeof options.allCaps === 'undefined') ? false : options.allCaps;
+    const noCaps = (typeof options.noCaps === 'undefined') ? false : options.noCaps;
+
+    if (allCaps && noCaps) {
+      return '';
+    }
+    return this.randomFrom(alpha);
+  }
+
   /**
    * Returns a simple random floating point Number.
    *
