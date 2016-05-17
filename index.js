@@ -74,7 +74,7 @@ class RandomCrap {
   }
 
   /**
-   * Returns a random apha character.
+   * Returns a random alpha character.
    *
    * @param {Object} options
    *  Optional arguments:

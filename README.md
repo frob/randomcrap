@@ -57,6 +57,24 @@ This is meant to be a flexible yet not cryptography sound random number generato
 
 @return Float
 
+### simpleRandomAlpha
+
+```simpleRandomAlpha (options)```
+!Returns a random alpha character.
+
+@param {Object} options
+
+options.allCaps: {Boolean},
+!Only return Capitalized letters.
+
+options.noCaps: {Boolean},
+!Never return Capitalized letters.
+
+_set: {Array},
+!Inject set, useful for testing, or localization.
+
+@return {String}
+
 ## Planned additions
 - [x] random int
 - [x] random from set
