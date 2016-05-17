@@ -79,6 +79,6 @@ _set: {Array},
 - [x] random int
 - [x] random from set
 - [x] random float
-- [ ] random alpha
+- [x] random alpha
 - [ ] random alpha numeric
 - [ ] random emoji
