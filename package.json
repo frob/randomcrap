@@ -5,7 +5,7 @@
   "repository": "git@github.com:frob/randomcrap.git",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js && exit 0"
   },
   "keywords": [
     "random",
