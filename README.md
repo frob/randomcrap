@@ -80,5 +80,5 @@ _set: {Array},
 - [x] random from set
 - [x] random float
 - [x] random alpha
-- [ ] random alpha numeric
+- [x] random alpha numeric
 - [ ] random emoji
