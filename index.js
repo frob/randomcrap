@@ -73,6 +73,22 @@ class RandomCrap {
     return randomElement;
   }
 
+  simpleRandomAlphaNum(options) {
+    options = Object.assign({}, options || {});
+    const noOfDigets = (typeof options.noOfDigets === 'undefined') ? this.simpleRandomInt(7,14) : options.noOfDigets;
+    let notHash = '';
+    for (let i = 0; i < noOfDigets; i ++) {
+      let alphaOrNumber = this.simpleRandomInt(1,1000);
+      if (alphaOrNumber % 2 === 0) {
+        notHash += this.simpleRandomInt(0,9);
+      }
+      else {
+        notHash += this.simpleRandomAlpha();
+      }
+    }
+    return notHash;
+  }
+
   /**
    * Returns a random alpha character.
    *

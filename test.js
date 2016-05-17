@@ -40,3 +40,6 @@ console.log('Assert noCaps option works: true|' + (rc.simpleRandomAlpha({_set: [
 console.log('Assert noCaps option works: false|' + (rc.simpleRandomAlpha({_set: ['a'], noCaps: true}) === 'A'));
 console.log('Assert allCaps option works: true|' + (rc.simpleRandomAlpha({_set: ['a'], allCaps: true}) === 'A'));
 console.log('Assert allCaps option works: false|' + (rc.simpleRandomAlpha({_set: ['a'], allCaps: true}) === 'a'));
+
+console.log('Test simpleRandomAlphaNum');
+console.log(rc.simpleRandomAlphaNum({noOfDigets: 100}));
