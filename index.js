@@ -1,13 +1,32 @@
 'use strict';
 
+/**
+ * The Normal Bias needed to create centered Random Number Generation.
+ * @constant {Number}
+ */
 const NORMAL_BIAS = 0.289;
+
+/**
+ * The High end on which the random number will be adjusted for randomness.
+ * @constant {Number}
+ */
 const HIGH_ADJUSTER = 10;
+
+/**
+ * The High end on which the random number will be adjusted for randomness.
+ * @constant {Number}
+ */
 const LOW_ADJUSTER = 1
 
 /**
- * Instantiates a RandomCrap Object.
+ * Class for generation of RandomCrap.
  *
- * @param {Float} biasAdjuster
+ * Please do not complain about these numbers not being "true" random. The point
+ * behind doing this isn't to have correct math, but instead to generate numbers
+ * that are fun. This is why the bais exists and can be adjusted. This way the
+ * developer can influence the result to adjust the fun.
+ *
+ * @param {Float} [biasAdjuster="NORMAL_BIAS"]
  *   Allows setting a high or low bias for random generation.
  */
 class RandomCrap {
@@ -21,7 +40,7 @@ class RandomCrap {
   /**
    * Sets the current random bias.
    *
-   * @param {Float} bias
+   * @param {Float} [bias="NORMAL_BIAS"]
    *   Allows setting a high or low bias for random generation. Setting nothing
    *   will reset to neutral bias.
    */
@@ -44,11 +63,11 @@ class RandomCrap {
    * @param {Array} set
    *  The set from which to pull a random element.
    *
-   * @param {String} name
+   * @param {String} [name="__default"]
    *  The name of the set, if this is set then the random element will be
    *  removed as a possible element in future calls.
    *
-   * @param {Boolean} loop
+   * @param {Boolean} [loop="false"]
    *  Append the original set back onto the end if the set is empty.
    */
   randomFrom(set, name, loop) {
@@ -93,15 +112,16 @@ class RandomCrap {
    * Returns a random alpha character.
    *
    * @param {Object} options
-   *  Optional arguments:
-   *   {
-   *     allCaps: {Boolean},
-   *       Only return Capitalized letters.
-   *     noCaps: {Boolean},
-   *       Never return Capitalized letters.
-   *     _set: {Array},
-   *       Inject set, useful for testing, or localization.
-   *   }
+   *  Optional arguments.
+   *
+   * @param {Boolean} [options.allCaps="false"]
+   *  Only return Capitalized letters.
+   *
+   * @param {Boolean} [options.noCaps="false"]
+   *  Never return Capitalized letters.
+   *
+   * @param {Array} [options._set="[a, b, c, ... z]"]
+   *  Inject set, useful for testing, or localization.
    *
    * @return {String}
    */
@@ -185,10 +205,12 @@ class RandomCrap {
    * @param {Integer} max
    *  The highest number to return.
    *
-   * @return {Array}
+   * @return {Integer}
    */
   simpleRandomInt (min, max) {
     const mathRandom = Math.random();
+
+    // The likelyAdjuster is used to give a better spread to the random numbers.
     const likelyAdjuster = Math.floor(mathRandom * ((HIGH_ADJUSTER + 1) - LOW_ADJUSTER)) + LOW_ADJUSTER;
     let random = parseFloat('0.' + (Math.random() * mathRandom * (new Date().getTime())));
 
