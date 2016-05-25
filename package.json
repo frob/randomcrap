@@ -5,12 +5,16 @@
   "repository": "git@github.com:frob/randomcrap.git",
   "main": "index.js",
   "scripts": {
-    "test": "node test.js && exit 0"
+    "test": "node test.js && exit 0",
+    "jsdoc-generate": "cat ABOUT.md > README.md && node node_modules/jsdoc-to-markdown/bin/cli.js index.js >> README.md"
   },
   "keywords": [
     "random",
     "crap"
   ],
   "author": "Frank Anderson <anderson.frankrobert@gmail.com> (http://frankrobertanderson.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^1.3.6"
+  }
 }
