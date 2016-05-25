@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test.js && exit 0",
-    "jsdoc-generate": "cat ABOUT.md > README.md && node node_modules/jsdoc-to-markdown/bin/cli.js index.js >> README.md"
+    "jsdoc-generate": "cat ABOUT.md > README.md && echo \" \" >> README.md && node node_modules/jsdoc-to-markdown/bin/cli.js index.js >> README.md"
   },
   "keywords": [
     "random",
